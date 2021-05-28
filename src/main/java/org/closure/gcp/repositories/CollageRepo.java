@@ -2,12 +2,12 @@ package org.closure.gcp.repositories;
 
 import java.util.Optional;
 
-import org.closure.gcp.entities.UserEntity;
+import org.closure.gcp.entities.CollageEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepo extends JpaRepository<UserEntity,Integer>{
+public interface CollageRepo extends JpaRepository<CollageEntity,Integer>{
     
-    Optional<UserEntity> findByEmail(String email);
+    Optional<CollageEntity> findByCollageName(String collageName);
 }
