@@ -37,7 +37,7 @@ public class UserEntity {
     private String address; 
 
     @ManyToOne(optional = true)
-    private CollageEntity college;
+    private CollegeEntity college;
 
     @Column(nullable = true)
     private Gender gender;
@@ -46,7 +46,7 @@ public class UserEntity {
     public UserEntity() {
     }
 
-    public UserEntity(Integer id, String username, String email, String password, Date birthday, String address, CollageEntity college, Gender gender) {
+    public UserEntity(Integer id, String username, String email, String password, Date birthday, String address, CollegeEntity college, Gender gender) {
         this.id = id;
         this.username = username;
         this.email = email;
@@ -105,11 +105,11 @@ public class UserEntity {
         this.address = address;
     }
 
-    public CollageEntity getCollege() {
+    public CollegeEntity getCollege() {
         return this.college;
     }
 
-    public void setCollege(CollageEntity college) {
+    public void setCollege(CollegeEntity college) {
         this.college = college;
     }
 
@@ -151,7 +151,7 @@ public class UserEntity {
         return this;
     }
 
-    public UserEntity college(CollageEntity college) {
+    public UserEntity college(CollegeEntity college) {
         setCollege(college);
         return this;
     }

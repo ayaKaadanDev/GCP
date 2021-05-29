@@ -12,25 +12,25 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "collages")
-public class CollageEntity {
+@Table(name = "colleges")
+public class CollegeEntity {
     
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
     private Integer id;
 
     @Column(nullable = false)
-    private String collageName;
+    private String collegeName;
 
     @OneToMany(mappedBy = "college")
     private List<UserEntity> users;
 
-    public CollageEntity() {
+    public CollegeEntity() {
     }
 
-    public CollageEntity(Integer id, String collageName) {
+    public CollegeEntity(Integer id, String collegeName) {
         this.id = id;
-        this.collageName = collageName;
+        this.collegeName = collegeName;
     }
 
     public Integer getId() {
@@ -41,21 +41,21 @@ public class CollageEntity {
         this.id = id;
     }
 
-    public String getCollageName() {
-        return this.collageName;
+    public String getCollegeName() {
+        return this.collegeName;
     }
 
-    public void setCollageName(String collageName) {
-        this.collageName = collageName;
+    public void setCollegeName(String collegeName) {
+        this.collegeName = collegeName;
     }
 
-    public CollageEntity id(Integer id) {
+    public CollegeEntity id(Integer id) {
         setId(id);
         return this;
     }
 
-    public CollageEntity collageName(String collageName) {
-        setCollageName(collageName);
+    public CollegeEntity collegeName(String collegeName) {
+        setCollegeName(collegeName);
         return this;
     }
 
@@ -63,23 +63,23 @@ public class CollageEntity {
     public boolean equals(Object o) {
         if (o == this)
             return true;
-        if (!(o instanceof CollageEntity)) {
+        if (!(o instanceof CollegeEntity)) {
             return false;
         }
-        CollageEntity collageEntity = (CollageEntity) o;
-        return Objects.equals(id, collageEntity.id) && Objects.equals(collageName, collageEntity.collageName);
+        CollegeEntity collegeEntity = (CollegeEntity) o;
+        return Objects.equals(id, collegeEntity.id) && Objects.equals(collegeName, collegeEntity.collegeName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, collageName);
+        return Objects.hash(id, collegeName);
     }
 
     @Override
     public String toString() {
         return "{" +
             " id='" + getId() + "'" +
-            ", collageName='" + getCollageName() + "'" +
+            ", collegeName='" + getCollegeName() + "'" +
             "}";
     }
 
