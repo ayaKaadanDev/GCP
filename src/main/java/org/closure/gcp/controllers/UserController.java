@@ -20,8 +20,13 @@ public class UserController {
    UserService userService;
 
     @RequestMapping(value="/register", method=RequestMethod.POST)
-    public UserModel registerUser(@RequestBody UserModel user) {
-        return userService.registerUser(user);
+    public Object registerUser(@RequestBody UserModel user) {
+        try{
+            return userService.registerUser(user);
+        }catch(UserException e)
+        {
+            return e.getMessage();
+        }
     }
     
 
