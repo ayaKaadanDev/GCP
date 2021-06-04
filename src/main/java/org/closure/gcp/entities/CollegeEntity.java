@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "colleges")
+@Table(name = "college")
 public class CollegeEntity {
     
     @Id
@@ -23,14 +23,20 @@ public class CollegeEntity {
     private String collegeName;
 
     @OneToMany(mappedBy = "college")
-    private List<UserEntity> users;
+    private List<UserEntity> user;
+
+    @Column(nullable = true)
+    private String image;
+
 
     public CollegeEntity() {
     }
 
-    public CollegeEntity(Integer id, String collegeName) {
+    public CollegeEntity(Integer id, String collegeName, List<UserEntity> user, String image) {
         this.id = id;
         this.collegeName = collegeName;
+        this.user = user;
+        this.image = image;
     }
 
     public Integer getId() {
@@ -49,6 +55,22 @@ public class CollegeEntity {
         this.collegeName = collegeName;
     }
 
+    public List<UserEntity> getUser() {
+        return this.user;
+    }
+
+    public void setUser(List<UserEntity> user) {
+        this.user = user;
+    }
+
+    public String getImage() {
+        return this.image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     public CollegeEntity id(Integer id) {
         setId(id);
         return this;
@@ -56,6 +78,16 @@ public class CollegeEntity {
 
     public CollegeEntity collegeName(String collegeName) {
         setCollegeName(collegeName);
+        return this;
+    }
+
+    public CollegeEntity user(List<UserEntity> user) {
+        setUser(user);
+        return this;
+    }
+
+    public CollegeEntity image(String image) {
+        setImage(image);
         return this;
     }
 
@@ -67,12 +99,12 @@ public class CollegeEntity {
             return false;
         }
         CollegeEntity collegeEntity = (CollegeEntity) o;
-        return Objects.equals(id, collegeEntity.id) && Objects.equals(collegeName, collegeEntity.collegeName);
+        return Objects.equals(id, collegeEntity.id) && Objects.equals(collegeName, collegeEntity.collegeName) && Objects.equals(user, collegeEntity.user) && Objects.equals(image, collegeEntity.image);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, collegeName);
+        return Objects.hash(id, collegeName, user, image);
     }
 
     @Override
@@ -80,7 +112,11 @@ public class CollegeEntity {
         return "{" +
             " id='" + getId() + "'" +
             ", collegeName='" + getCollegeName() + "'" +
+            ", user='" + getUser() + "'" +
+            ", image='" + getImage() + "'" +
             "}";
     }
+
+
 
 }

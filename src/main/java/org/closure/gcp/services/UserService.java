@@ -60,7 +60,7 @@ public class UserService {
     public UserEntity UserModelToUserEntity(UserModel user)
     {
         return new UserEntity()
-            .username(user.getUsername())
+            .name(user.getUsername())
             .email(user.getEmail())
             .password(user.getPassword())
             .address(user.getAddress())
@@ -78,7 +78,7 @@ public class UserService {
     {
         return new UserModel()
             .id(user.getId())
-            .username(user.getUsername())
+            .username(user.getName())
             .email(user.getEmail())
             .address(user.getAddress())
             .birthday(user.getBirthday())
