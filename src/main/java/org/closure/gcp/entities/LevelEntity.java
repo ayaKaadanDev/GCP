@@ -139,7 +139,9 @@ public class LevelEntity {
             "}";
     }
 
+    public LevelEntity quastionId(Object quastionId) {
+        return null;
+    }
+    
 
-    
-    
 }
